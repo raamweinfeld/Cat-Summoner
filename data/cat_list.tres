@@ -1,0 +1,132 @@
+[gd_resource type="Resource" load_steps=14 format=2]
+
+[ext_resource path="res://CatList.gd" type="Script" id=1]
+[ext_resource path="res://Cat.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+summonImagePath = "res://cats/cat.png"
+name = "Stewart"
+story = "If something needs to be done, I do it. If I am spoken to, those words become my action. I am but just a pawn with no promotion in sight. The Biscuit would never let me rise. Not again. Not after they've seen what I'm capable of."
+secretStory = ""
+rarity = 0
+globalID = 0
+dateID = 0
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+summonImagePath = "res://cats/maine_coon.png"
+name = "Unger"
+story = "Followers are disappearing. The upper chain of command likewise. This land, although barren, has become too much so for my liking. No duties. No respect. My time is coming.
+
+I don't want to go back."
+secretStory = ""
+rarity = 1
+globalID = 0
+dateID = 0
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+summonImagePath = "res://cats/firefold.png"
+name = "Mike Blazer"
+story = "Yo, I'm Mike. Mike Blazer. Nobody likes me - not even me. I fix tires for a living. Haven't been pet in years. Incarcerated for fraud. Twice. That's about it. Don't make me do it again."
+secretStory = ""
+rarity = 2
+globalID = 0
+dateID = 0
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+summonImagePath = "res://cats/angel.png"
+name = "THE UNSINGULAR"
+story = "DO NOT BIDE.
+
+DO NOT OFFER PENANCE.
+
+THE UNSINGULAR ARE NOT DIVINE.
+
+UNSING OUR PRAISES."
+secretStory = ""
+rarity = 3
+globalID = 0
+dateID = 0
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 2 )
+summonImagePath = "res://cats/devil.png"
+name = "Litter"
+story = "I've been around the block. Hell, I could give you the whole damn neighborhood. Organizations, movements...those things don't concern me anymore. I've seen them fall more than cats come down here for pooping the bed. I'm more interested in the new arrivals. My last coat drove me bonkers."
+secretStory = ""
+rarity = 3
+globalID = 0
+dateID = 0
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 2 )
+summonImagePath = "res://cats/eye.png"
+name = "Bentham"
+story = "Despite never accomplishing anything noteworthy in the centuries since it was first spotted in the underworld, many have tried to reason with the entity known as Bentham. Even stranger, the most dedicated observers swear the eyes throughout its body have steadily increased in number."
+secretStory = ""
+rarity = 2
+globalID = 0
+dateID = 0
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 2 )
+summonImagePath = "res://cats/nightdemon.png"
+name = "Tip Top"
+story = "SQUAK! SQWEEK SCAP? YARF."
+secretStory = ""
+rarity = 2
+globalID = 0
+dateID = 0
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 2 )
+summonImagePath = "res://cats/purplefire.png"
+name = "Q-bit"
+story = "Weebidity deebity, don't make me peepity doobity. You see that spoopidy sloop? My freedom was always imminent. Skippity hibbidy! Moopity boop, your reward is your life! Sheebadee scoop!"
+secretStory = ""
+rarity = 2
+globalID = 0
+dateID = 0
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 2 )
+summonImagePath = "res://cats/siamese.png"
+name = "Chat, Cat, and Burt"
+story = "Listen, the rumors about me - well, the rumors about us - are overblown. I'm an understanding guy, so understand me. \"Two's a party, three's a crowd\"? We're a crowd. All the time. You get that, right? We serve the Biscuit well. Chat's the muscle, and Burt's retired. Look, I ain't the one eating people, but I gotta admit, the taste ain't bad."
+secretStory = ""
+rarity = 3
+globalID = 0
+dateID = 0
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 2 )
+summonImagePath = "res://cats/vampire.png"
+name = "Lord Markeem II"
+story = "Dear fair Viscountess,
+
+We live a cruel joke; separated betwistle worlds. How I long to clutch you deep into my pawful embrace as we sail across the endless spurs. I can fly, you know. Please remember that.
+
+With yours in mine,
+
+Markeem"
+secretStory = ""
+rarity = 3
+globalID = 0
+dateID = 0
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 2 )
+summonImagePath = "res://cats/witch.png"
+name = "Mixey"
+story = "A mass summoning - I can forsee it! The magic required, nay, the machinations! My talents lay unfulfilled. This is their oversight. If I am not concerned, then this does not concern me. I will continue to invest in my own projects."
+secretStory = ""
+rarity = 1
+globalID = 0
+dateID = 0
+
+[resource]
+script = ExtResource( 1 )
+list = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ]

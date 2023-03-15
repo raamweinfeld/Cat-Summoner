@@ -1,0 +1,441 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://altar.png" type="Texture" id=1]
+[ext_resource path="res://main.gd" type="Script" id=2]
+[ext_resource path="res://altar_markings.png" type="Texture" id=3]
+[ext_resource path="res://Board.gd" type="Script" id=4]
+[ext_resource path="res://data/background.png" type="Texture" id=5]
+[ext_resource path="res://data/message_con.png" type="Texture" id=6]
+[ext_resource path="res://fonts/Arvo-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://data/bookopen.png" type="Texture" id=8]
+[ext_resource path="res://fonts/Arvo-Italic.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://data/book.png" type="Texture" id=10]
+[ext_resource path="res://data/textbox.png" type="Texture" id=11]
+[ext_resource path="res://data/tutcat_closed_1.png" type="Texture" id=12]
+[ext_resource path="res://data/tutscroll.png" type="Texture" id=13]
+[ext_resource path="res://data/tutcat_open_1.png" type="Texture" id=14]
+[ext_resource path="res://data/tutcat_closed_2.png" type="Texture" id=15]
+[ext_resource path="res://data/Crowsit.png" type="Texture" id=16]
+[ext_resource path="res://data/Crowflydown.png" type="Texture" id=17]
+[ext_resource path="res://data/Crowsquak.png" type="Texture" id=18]
+[ext_resource path="res://data/examples.png" type="Texture" id=19]
+[ext_resource path="res://data/tutcat2_open_2.png" type="Texture" id=20]
+[ext_resource path="res://icons.tres" type="Texture" id=22]
+[ext_resource path="res://Debug.gd" type="Script" id=23]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "Fly",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "Sit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "Squak",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 282.018, 240.621 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "FlyIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -100, -100 ), Vector2( 822.667, 76 ), Vector2( 880.333, 83.551 ), Vector2( 938, 98 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "Fly", "Fly", "Sit" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "FlyOut"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.4, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 938, 98 ), Vector2( 938, 98 ), Vector2( -100, -100 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "Sit", "Squak", "Sit", "Sit", "Fly" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "Open",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "TalkingClosed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "TalkingOpen",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 338, 312 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 7 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Screen" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Background" type="TextureRect" parent="Screen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -817.0
+margin_top = -461.0
+margin_right = 817.0
+margin_bottom = 411.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="Screen"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Board" type="GridContainer" parent="Screen/CenterContainer"]
+margin_left = 512.0
+margin_top = 300.0
+margin_right = 512.0
+margin_bottom = 300.0
+columns = 3
+script = ExtResource( 4 )
+offset = Vector2( 3, 5 )
+cardTexture = ExtResource( 22 )
+
+[node name="FoundBoard" type="GridContainer" parent="Screen"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 45.0
+margin_bottom = 45.0
+columns = 3
+script = ExtResource( 4 )
+offset = Vector2( 1, 1 )
+size = Vector2( 0.35, 0.35 )
+cardTexture = ExtResource( 22 )
+
+[node name="Altar" type="TextureRect" parent="Screen"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -272.0
+margin_top = -277.0
+margin_right = 26.0
+margin_bottom = 21.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+
+[node name="Markings" type="TextureRect" parent="Screen/Altar"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -151.0
+margin_top = -151.0
+margin_right = 151.0
+margin_bottom = 151.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Summon" type="TextureRect" parent="Screen/Altar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -60.0
+margin_right = 100.0
+margin_bottom = 140.0
+expand = true
+stretch_mode = 5
+
+[node name="Focus" type="Control" parent="Screen/Altar/Summon"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="Focus2" type="Control" parent="Screen/Altar/Summon"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 22.0
+margin_top = -20.0
+margin_right = 62.0
+margin_bottom = 20.0
+
+[node name="Crow" type="AnimatedSprite" parent="Screen"]
+position = Vector2( -100, -100 )
+scale = Vector2( 0.19325, 0.19325 )
+frames = SubResource( 6 )
+animation = "Fly"
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="Screen/Crow"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Screen/Crow/Area2D"]
+position = Vector2( 59.5088, 2.58731 )
+shape = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Screen/Crow"]
+anims/FlyIn = SubResource( 8 )
+anims/FlyOut = SubResource( 9 )
+
+[node name="TutorialCat" type="AnimatedSprite" parent="Screen"]
+position = Vector2( 124, 335 )
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 4 )
+animation = "TalkingClosed"
+frame = 1
+
+[node name="Scroll" type="Sprite" parent="Screen/TutorialCat"]
+visible = false
+position = Vector2( 0, 408 )
+texture = ExtResource( 13 )
+
+[node name="Examples" type="Sprite" parent="Screen/TutorialCat/Scroll"]
+position = Vector2( 3.05176e-05, 12 )
+scale = Vector2( 0.928, 0.928 )
+texture = ExtResource( 19 )
+
+[node name="Area2D" type="Area2D" parent="Screen/TutorialCat"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Screen/TutorialCat/Area2D"]
+position = Vector2( -10, -4 )
+shape = SubResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="VictoryUI" type="Control" parent="Camera2D/CanvasLayer"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="NextLevelButton" type="Button" parent="Camera2D/CanvasLayer/VictoryUI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -117.0
+margin_top = -45.0
+margin_right = -15.0
+margin_bottom = -15.0
+text = "Next Level"
+
+[node name="Book" type="TextureRect" parent="Camera2D/CanvasLayer/VictoryUI"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -414.0
+margin_top = -233.5
+margin_bottom = 233.5
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="Camera2D/CanvasLayer/VictoryUI/Book"]
+margin_left = 66.0
+margin_top = 67.5
+margin_right = 279.0
+margin_bottom = 353.5
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+text = "Stewart"
+
+[node name="Story" type="RichTextLabel" parent="Camera2D/CanvasLayer/VictoryUI/Book"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -141.5
+margin_top = -131.5
+margin_right = 73.5
+margin_bottom = 161.5
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 2 )
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id ultrices diam, eu posuere ligula. Vestibulum magna turpis, vehicula a elit in, posuere fringilla neque. Nulla id nisl sit amet metus pulvinar elementum. Sed eros erat, tempor ut urna quis, viverra maximus neque. Sed sed felis in dui imperdiet sagittis. Aenean justo nibh, lobortis et sem at, mollis tempus tellus. Nulla nisi elit, ultrices id orci id, vulputate ornare nisi. Proin convallis quis nibh nec volutpat. Nulla pharetra mattis sollicitudin. Nullam interdum, nisl in mattis porttitor, elit felis laoreet lacus, eu interdum diam ante ac ligula. Quisque id tempor odio. Curabitur ac nibh purus. Vivamus molestie sapien et eros bibendum, venenatis pharetra leo porttitor. Donec et tempus ligula."
+fit_content_height = true
+
+[node name="DebugUI" type="Control" parent="Camera2D/CanvasLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -112.0
+margin_right = 197.0
+script = ExtResource( 23 )
+
+[node name="DebugInfo" type="RichTextLabel" parent="Camera2D/CanvasLayer/DebugUI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -82.0
+margin_right = 186.0
+text = "Debug:
+Spacebar - Solve Level
+Right Arrow - Next Level
+Left Arrow - Previous Level"
+
+[node name="HintTimerText" type="RichTextLabel" parent="Camera2D/CanvasLayer/DebugUI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -106.0
+margin_top = 15.0
+margin_bottom = 55.0
+text = "Hint Timer: "
+
+[node name="ClosedBook" type="TextureRect" parent="Camera2D/CanvasLayer"]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -293.0
+margin_top = -227.0
+margin_bottom = 227.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="TextBox" type="TextureRect" parent="Camera2D/CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -158.0
+margin_right = 512.0
+margin_bottom = -8.0
+texture = ExtResource( 11 )
+
+[node name="Text" type="RichTextLabel" parent="Camera2D/CanvasLayer/TextBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -402.5
+margin_top = -15.5
+margin_right = 402.5
+margin_bottom = 15.5
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center]Fledgling, I need you to focus.[/center]"
+text = "Fledgling, I need you to focus."
+fit_content_height = true
+scroll_active = false
+
+[node name="Confirmation" type="TextureRect" parent="Camera2D/CanvasLayer/TextBox"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -95.0
+margin_top = -52.0
+margin_right = -55.0
+margin_bottom = -12.0
+texture = ExtResource( 6 )
+
+[node name="HintTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="Camera2D/CanvasLayer/VictoryUI/NextLevelButton" to="." method="_on_NextLevelButton_pressed"]
+[connection signal="meta_clicked" from="Camera2D/CanvasLayer/TextBox/Text" to="." method="_on_Text_meta_clicked"]
+[connection signal="timeout" from="HintTimer" to="." method="_on_HintTimer_timeout"]

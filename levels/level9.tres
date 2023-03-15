@@ -1,0 +1,96 @@
+[gd_resource type="Resource" load_steps=15 format=2]
+
+[ext_resource path="res://CardInfo.gd" type="Script" id=1]
+[ext_resource path="res://Level.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+color = 0
+shape = 2
+pattern = 2
+count = 3
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 1 )
+color = 1
+shape = 1
+pattern = 2
+count = 1
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 1 )
+color = 2
+shape = 1
+pattern = 0
+count = 3
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 1 )
+color = 2
+shape = 2
+pattern = 2
+count = 3
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 1 )
+color = 2
+shape = 0
+pattern = 1
+count = 1
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 1 )
+color = 2
+shape = 2
+pattern = 0
+count = 2
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 1 )
+color = 1
+shape = 0
+pattern = 1
+count = 3
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 1 )
+color = 1
+shape = 0
+pattern = 2
+count = 3
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 1 )
+color = 2
+shape = 1
+pattern = 1
+count = 2
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 1 )
+color = 2
+shape = 1
+pattern = 0
+count = 2
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 1 )
+color = 2
+shape = 0
+pattern = 2
+count = 2
+
+[sub_resource type="Resource" id=12]
+script = ExtResource( 1 )
+color = 0
+shape = 2
+pattern = 1
+count = 1
+
+[resource]
+script = ExtResource( 2 )
+layout = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ]
+setsToWin = 6
+index = 9
+timer = 0
+shuffle = true
